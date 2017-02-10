@@ -1,0 +1,15 @@
+<div style="height: 100vh; max-width: 35rem; margin-left: auto; margin-right: auto; display:flex; flex-direction:column">
+  <h2>Ember Collection</h2>
+  <div style="position: relative; flex: 1 1">
+    {{#ember-collection
+      items=model
+      cell-layout=(percentage-columns-layout content.length columns 48)
+      as |item index| }}
+      <div class="list-item">
+        <div class="flex-grow">{{item.name}}</div>
+        <label style="width: 48px"><input type="checkbox"></label>
+      </div>
+    {{/ember-collection}}
+  </div>
+  {{outlet}}
+</div>

@@ -1,0 +1,34 @@
+body {
+  /*width: 100%;*/
+  height: 100vh;
+  margin: 0;
+}
+
+h2 {
+  margin: 1rem;
+}
+
+.list-item {
+  height: 100%;
+  /*outline: solid lightCyan 1px;*/
+
+  padding: 0 0 0 1rem;
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+}
+.list-item :first-child {
+  max-height: 5ex;
+  overflow: hidden;
+}
+.list-item label {
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-grow {
+  flex: 1 1;
+}
