@@ -1,5 +1,7 @@
 {
   "name": "beta-list",
   "dependencies": {
+    "hammer.js": "2.0.6",
+    "hammer-time": "1.0.0"
   }
 }

@@ -11,7 +11,7 @@ export default Ember.Route.extend({
         text.push (lipsum[Math.floor(Math.random()*lipsum.length)]);
       }
       text.push(i);
-      items.push({name: text.join(" ")});
+      items.push({name: text.join(" "), index: i});
     }
     return items;
   }

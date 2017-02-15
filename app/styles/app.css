@@ -8,7 +8,12 @@ h2 {
   margin: 1rem;
 }
 
-.list-item {
+.touchList {
+  position: relative;
+  flex: 1 1;
+}
+
+.listItem {
   height: 100%;
   /*outline: solid lightCyan 1px;*/
 
@@ -17,11 +22,12 @@ h2 {
   flex-direction:row;
   align-items: center;
 }
-.list-item :first-child {
+.listItem :first-child {
+  flex: 1 1;
   max-height: 5ex;
   overflow: hidden;
 }
-.list-item label {
+.listItem label {
   align-self: stretch;
 
   display: flex;
@@ -29,6 +35,6 @@ h2 {
   justify-content: center;
 }
 
-.flex-grow {
-  flex: 1 1;
-}
+/*.flex-grow {*/
+  /*flex: 1 1;*/
+/*}*/
