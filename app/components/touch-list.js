@@ -1,6 +1,6 @@
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 import Ember from 'ember';
-import notification from 'beta-list/utils/notification';
+// import notification from 'beta-list/utils/notification';
 
 export default Ember.Component.extend(RecognizerMixin, {
   recognizers: 'tap press swipe',
@@ -18,18 +18,48 @@ export default Ember.Component.extend(RecognizerMixin, {
   },
 
   // gestures
-  swipeLeft() {
-    console.log("swipeLeft:", ...arguments);
+  swipeLeft(event) {
+    let itemParents = Ember.$(event.target).closest(".listItem").closest("div");   // should be 0 or 1
+    if (itemParents.length) {
+      console.log("swipeLeft: " + itemParents[0]);
+
+      this.manipulateOverlay(itemParents, false);
+    }
   },
 
   swipeRight(event) {
-    let listItems = Ember.$(event.target).closest(".listItem");   // should be 0 or 1
-    if (listItems.length) {
-      let index = listItems[0].dataset.index;
-      console.log("swipeRight: " + index, Ember.$(event.target).closest(".listItem"));
+    let itemParents = Ember.$(event.target).closest(".listItem").closest("div");   // should be 0 or 1
+    console.log(itemParents);
+    if (itemParents.length) {
+      // let listItem = listItems[0];
+      // let index = listItem.dataset.index;
+      // console.log("swipeRight: " + index, Ember.$(event.target).closest(".listItem"));
 
-      notification("swipeRight - item " + index, "SWIPE");
+      this.manipulateOverlay(itemParents, true);
     }
+  },
+
+  manipulateOverlay(itemParents, moveRight) {
+    let overlays = itemParents.children('.overlay');
+    console.log("manipulateOverlay: " + overlays.length + " overlays");
+    if (overlays.length === 0) {   // no overlay
+      let overlayClass = moveRight ? 'overlayLeft' : 'overlayRight';
+      itemParents.append('<div class="overlay ' + overlayClass + '"> </div>');
+      overlays = itemParents.children('.overlay');
+      console.log("created overlay: ", overlays);
+      setTimeout(function () {
+        overlays.removeClass(overlayClass);
+      }, 25);
+    } else {   // existing overlay
+      console.log("existing overlay: ", overlays);
+
+      overlays.addClass(moveRight ? 'overlayRight' : 'overlayLeft');
+      overlays.on('transitionend', function () {
+        console.log("transitionend", overlays);
+        overlays.remove();
+      });
+    }
+
   },
 
   actions: {
