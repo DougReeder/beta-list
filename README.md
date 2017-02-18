@@ -1,8 +1,13 @@
 # beta-list
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Ember is a candidate for the standard JS framework for LuneOS.
+When complete, this app should demonstate the requirements at
+http://webos-ports.org/wiki/New_JavaScript_framework
 
+The latest working version is usually deployed at
+https://ember-demo.surge.sh/
+ 
+ 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
