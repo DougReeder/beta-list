@@ -24,7 +24,15 @@ export default Ember.Component.extend(RecognizerMixin, {
       let index = listItems[0].dataset.index;
       console.log("swipeLeft: " + index, listItems[0]);
 
-      this.manipulateOverlay(listItems, false);
+      this.manipulateOverlay(listItems, false, dismissOrUnadopt);
+    }
+
+    function dismissOrUnadopt() {
+      if (listItems.hasClass('adopted')) {
+        listItems.removeClass('adopted');
+      } else {
+        listItems.addClass('dismissed');
+      }
     }
   },
 
@@ -35,11 +43,19 @@ export default Ember.Component.extend(RecognizerMixin, {
       let index = listItems[0].dataset.index;
       console.log("swipeRight: " + index, listItems[0]);
 
-      this.manipulateOverlay(listItems, true);
+      this.manipulateOverlay(listItems, true, adoptOrUndismiss);
+    }
+
+    function adoptOrUndismiss() {
+      if (listItems.hasClass('dismissed')) {
+        listItems.removeClass('dismissed');
+      } else {
+        listItems.addClass('adopted');
+      }
     }
   },
 
-  manipulateOverlay(listItems, moveRight) {
+  manipulateOverlay(listItems, moveRight, callback) {
     let overlays = listItems.children('.overlay');
     console.log("manipulateOverlay: " + overlays.length + " overlays");
     if (overlays.length === 0) {   // no overlay
@@ -50,6 +66,16 @@ export default Ember.Component.extend(RecognizerMixin, {
       setTimeout(function () {
         overlays.removeClass(overlayClass);
       }, 25);
+      overlays.one('transitionend', function () {
+        console.log("transitionend 1", overlays);
+        overlays.addClass('fadeout');
+        callback();
+
+        overlays.one('transitionend', function () {
+          console.log("transitionend 2", overlays);
+          overlays.remove();
+        });
+      });
     } else {   // existing overlay
       console.log("existing overlay: ", overlays);
 
@@ -57,6 +83,7 @@ export default Ember.Component.extend(RecognizerMixin, {
       overlays.on('transitionend', function () {
         console.log("transitionend", overlays);
         overlays.remove();
+        callback();
       });
     }
 

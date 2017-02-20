@@ -11,7 +11,15 @@ export default Ember.Route.extend({
         text.push (lipsum[Math.floor(Math.random()*lipsum.length)]);
       }
       text.push(i);
-      items.push({name: text.join(" "), completed: !Boolean((i+1)%3)});
+      let priority;
+      if (i<=1) {
+        priority = "adopted";
+      } else if (i >=20) {
+        priority = "dismissed";
+      } else {
+        priority = "";
+      }
+      items.push({name: text.join(" "), completed: !Boolean((i+1)%3), priority: priority });
     }
     return items;
   }

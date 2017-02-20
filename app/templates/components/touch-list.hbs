@@ -2,7 +2,7 @@
   items=model
   cell-layout=(percentage-columns-layout content.length columns 48)
 as |item index| }}
-  <div class="listItem" data-index="{{index}}">
+  <div class="listItem {{item.priority}}" data-index="{{index}}">
     <div>{{item.name}}</div>
     <label style="width: 48px"><input type="checkbox" checked={{item.completed}}></label>
   </div>
