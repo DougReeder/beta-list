@@ -19,33 +19,33 @@ export default Ember.Component.extend(RecognizerMixin, {
 
   // gestures
   swipeLeft(event) {
-    let itemParents = Ember.$(event.target).closest(".listItem").closest("div");   // should be 0 or 1
-    if (itemParents.length) {
-      console.log("swipeLeft: " + itemParents[0]);
+    let listItems = Ember.$(event.target).closest(".listItem");   // should be 0 or 1
+    if (listItems.length) {
+      let index = listItems[0].dataset.index;
+      console.log("swipeLeft: " + index, listItems[0]);
 
-      this.manipulateOverlay(itemParents, false);
+      this.manipulateOverlay(listItems, false);
     }
   },
 
   swipeRight(event) {
-    let itemParents = Ember.$(event.target).closest(".listItem").closest("div");   // should be 0 or 1
-    console.log(itemParents);
-    if (itemParents.length) {
-      // let listItem = listItems[0];
-      // let index = listItem.dataset.index;
-      // console.log("swipeRight: " + index, Ember.$(event.target).closest(".listItem"));
+    let listItems = Ember.$(event.target).closest(".listItem");   // should be 0 or 1
+    console.log(listItems);
+    if (listItems.length) {
+      let index = listItems[0].dataset.index;
+      console.log("swipeRight: " + index, listItems[0]);
 
-      this.manipulateOverlay(itemParents, true);
+      this.manipulateOverlay(listItems, true);
     }
   },
 
-  manipulateOverlay(itemParents, moveRight) {
-    let overlays = itemParents.children('.overlay');
+  manipulateOverlay(listItems, moveRight) {
+    let overlays = listItems.children('.overlay');
     console.log("manipulateOverlay: " + overlays.length + " overlays");
     if (overlays.length === 0) {   // no overlay
       let overlayClass = moveRight ? 'overlayLeft' : 'overlayRight';
-      itemParents.append('<div class="overlay ' + overlayClass + '"> </div>');
-      overlays = itemParents.children('.overlay');
+      listItems.append('<div class="overlay ' + overlayClass + '"> </div>');
+      overlays = listItems.children('.overlay');
       console.log("created overlay: ", overlays);
       setTimeout(function () {
         overlays.removeClass(overlayClass);
