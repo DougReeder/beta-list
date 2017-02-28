@@ -22,12 +22,12 @@ header {
   flex-direction:row;
   align-items: center;
 }
-.listItem :first-child {
+.listItem > :first-child {
   flex: 1 1;
   max-height: 5ex;
   overflow: hidden;
 }
-.listItem label {
+.listItem > label {
   align-self: stretch;
 
   display: flex;
