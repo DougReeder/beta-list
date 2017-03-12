@@ -53,4 +53,12 @@ export default function() {
       data: data
     };
   });
+
+  this.get('/items/:id', ({ items }, request) => {
+    let id = request.params.id;
+
+    return {
+      data: data[id]
+    };
+  });
 }

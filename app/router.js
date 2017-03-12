@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('list', function() {
+    this.route('show', { path: '/:item_id' });
   });
 });
 

@@ -8,9 +8,20 @@ header {
   margin: 1rem;
 }
 
+
+.panelContainer {
+  display: flex;
+  align-items: stretch;
+}
+
+.panel {
+  width: 50%;
+  flex: 1 0 auto;
+}
+
+
 .touchList {
-  position: relative;
-  flex: 1 1;
+  height: 100%;
 }
 
 .listItem {

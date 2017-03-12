@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr(),
-  completed: DS.attr(),
-  priority: DS.attr()
+  name: DS.attr('string'),
+  completed: DS.attr('boolean', { defaultValue: false }),
+  priority: DS.attr('string')
 });

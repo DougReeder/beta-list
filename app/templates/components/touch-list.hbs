@@ -3,7 +3,9 @@
   cell-layout=(percentage-columns-layout content.length columns 48)
 as |item index| }}
   <div class="listItem {{item.priority}}" data-index="{{index}}">
-    <div>{{item.name}}</div>
+    {{#link-to "list.show" item tagName="div"}}
+      <div>{{item.name}}</div>
+    {{/link-to}}
     <label style="width: 48px"><input type="checkbox" checked={{item.completed}}></label>
   </div>
 {{/ember-collection}}

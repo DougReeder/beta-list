@@ -18,6 +18,20 @@ export default Ember.Component.extend(RecognizerMixin, {
   },
 
   // gestures
+  // tap(event) {
+  //   let listItems = Ember.$(event.target).closest(".listItem");   // should be 0 or 1
+  //   if (listItems.length) {
+  //     let index = listItems[0].dataset.index;
+  //     console.log("tap: " + index, this.getProperties());
+  //     let model = this.get('model');
+  //     // console.log("model:", model);
+  //     let store = model.get('store');
+  //     // console.log("store:", store);
+  //     let record = store.findRecord('item', index);
+  //     console.log("record:", record);
+  //   }
+  // },
+
   swipeLeft(event) {
     let listItems = Ember.$(event.target).closest(".listItem");   // should be 0 or 1
     if (listItems.length) {
