@@ -29,14 +29,15 @@ export default function() {
   var data = [];
   for (var i = 0; i < 500; i++) {
     var text = [];
-    for (var j=0; j<Math.random()*60; j++) {
+    let r = Math.random();
+    for (var j=0; j<2+r*r*100; j++) {
       text.push (lipsum[Math.floor(Math.random()*lipsum.length)]);
     }
     text.push(i);
     let priority;
     if (i<=1) {
       priority = "adopted";
-    } else if (i >=20) {
+    } else if (i >=30) {
       priority = "dismissed";
     } else {
       priority = "";

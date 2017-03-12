@@ -14,9 +14,17 @@ header {
   align-items: stretch;
 }
 
-.panel {
-  width: 50%;
-  flex: 1 0 auto;
+.panelList {
+  width: 320px;
+  flex: 1 1 auto;
+
+  position: relative;
+}
+.panelDetail {
+  width: 320px;
+  flex: 2 2 auto;
+
+  position: relative;
 }
 
 
@@ -41,6 +49,12 @@ header {
 .listItem > label {
   align-self: stretch;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerContent {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,6 +90,26 @@ header {
 .overlay.fadeout {
   opacity: 0;
   transition: opacity 0.25s linear;
+}
+
+
+.advice {
+  position: absolute;
+  /*width: 310px;*/
+  margin: 0 auto;
+  left: 1em;
+  right: 1em;
+  top: 66px;
+  padding: 6px;
+  background: #d0f0ff;
+  border: 1px solid;
+  border-radius: 6px;
+}
+.advice .head {
+  font-weight:bold;
+  font-size: larger;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 /*.flex-grow {*/

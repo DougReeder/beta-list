@@ -1,10 +1,10 @@
 <div style="height: 100vh; display:flex; flex-direction:column">
   <header>
-    <h2 style="margin-bottom: 0.33em">swipe item left to “dismiss” or right to “adopt”</h2>
+    <h2 style="margin-top: 0; margin-bottom: 0.33em">swipe item left to “dismiss” or right to “adopt”</h2>
     (Not currently working in Chrome on Android)
   </header>
   <div class="panelContainer" style="flex: 1 0 auto">
-    <div class="panel" style="position: relative">{{touch-list content=content model=model}}</div>
-    <div class="panel">{{outlet}}</div>
+    <div class="panelList">{{touch-list content=content model=model}}</div>
+    <div class="panelDetail">{{outlet}}</div>
   </div>
 </div>
