@@ -1,10 +1,14 @@
 <div style="height: 100vh; display:flex; flex-direction:column">
-  <header>
-    <h2 style="margin-top: 0; margin-bottom: 0.33em">swipe item left to “dismiss” or right to “adopt”</h2>
-    (Not currently working in Chrome on Android)
-  </header>
   <div class="panelContainer" style="flex: 1 0 auto">
-    <div class="panelList">{{touch-list content=content model=model}}</div>
+    <div class="panelList">
+      <header>
+        <h2 style="margin-top: 0; margin-bottom: 0.33em; font-size: 1.3rem;">swipe item left to “dismiss” or right to “adopt”</h2>
+        <span style="font-size: smaller">(Not currently working in Chrome on Android)</span>
+      </header>
+      <div class="listContainer">
+        {{touch-list content=content model=model}}
+      </div>
+    </div>
     <div class="panelDetail">{{outlet}}</div>
   </div>
 </div>
