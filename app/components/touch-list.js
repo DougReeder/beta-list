@@ -3,6 +3,7 @@ import Ember from 'ember';
 // import notification from 'beta-list/utils/notification';
 
 export default Ember.Component.extend(RecognizerMixin, {
+  // how do we pass domEvents: true option to HammerJS?
   recognizers: 'tap press swipe',
   tagName: 'div',
   classNames: ['touchList'],
@@ -40,6 +41,8 @@ export default Ember.Component.extend(RecognizerMixin, {
 
       this.manipulateOverlay(listItems, false, dismissOrUnadopt);
     }
+    event.preventDefault();
+    event.stopPropagation();
 
     function dismissOrUnadopt() {
       if (listItems.hasClass('adopted')) {
