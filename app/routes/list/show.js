@@ -7,13 +7,9 @@ export default Ember.Route.extend({
 
   actions: {
     didTransition() {
-      console.log("didTransition");
-      // $('.panelContainer')[0].scrollLeft = 10000;
-      $('.panelContainer').animate({
-        scrollLeft: $('.panelContainer').width()
-      }, {
-        duration: 330
-      });
+      console.log("didTransition to show");
+      $('.panelList').addClass('right');
+      $('.panelDetail').addClass('right');
       return true; // Bubble the didTransition event
     }
   }

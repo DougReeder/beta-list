@@ -1,3 +1,6 @@
 <label class="centerContent" style="float:right; width:48px;height:48px;"><input type="checkbox" checked={{model.completed}}></label>
 <div>{{model.name}}</div>
+{{#link-to 'list' tagName='button' class="floatingAction"}}
+Back
+{{/link-to}}
 {{outlet}}

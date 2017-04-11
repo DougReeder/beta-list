@@ -29,13 +29,7 @@ body {
 @media all and (max-width: 639px) {
   .panelContainer {
     white-space: nowrap;
-    overflow-y: hidden;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: mandatory;
-    /* older spec implementation */
-    scroll-snap-destination: 0% 100%;
-    scroll-snap-points-x: repeat(100%);
+    overflow: hidden;
   }
 
   .panelList {
@@ -44,6 +38,11 @@ body {
     display: inline-block;
     vertical-align: top;
     white-space: normal;
+    transform: translateX(0);
+    transition: transform 0.3s;
+  }
+  .panelList.right {
+    transform: translateX(-100%);
   }
 
   .panelDetail {
@@ -52,6 +51,11 @@ body {
     display: inline-block;
     vertical-align: top;
     white-space: normal;
+    transform: translateX(0);
+    transition: transform 0.3s;
+  }
+  .panelDetail.right {
+    transform: translateX(-100%);
   }
 }
 
@@ -168,3 +172,9 @@ body {
 /*.flex-grow {*/
   /*flex: 1 1;*/
 /*}*/
+
+.floatingAction {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}
