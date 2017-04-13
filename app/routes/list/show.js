@@ -6,11 +6,11 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    didTransition() {
-      console.log("didTransition to show");
-      $('.panelList').addClass('right');
-      $('.panelDetail').addClass('right');
-      return true; // Bubble the didTransition event
-    }
+    // didTransition() {
+    //   console.log("didTransition to show");
+    //   $('.panelList').addClass('right');
+    //   $('.panelDetail').addClass('right');
+    //   return true; // Bubble the didTransition event
+    // }
   }
 });

@@ -1,9 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  routing: Ember.inject.service('-routing'),
+
   columns: Ember.computed(function() {
     return [100];
   }),
+
+  isShow: function() {
+    var currentRouteName = this.get('routing').get('currentRouteName');
+    return currentRouteName === 'list.show';
+  }.property('routing.currentRouteName'),
+
   actions: {
     // changeColumn: function(col) {
     //   switch (col) {

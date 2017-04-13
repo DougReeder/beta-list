@@ -1,8 +1,8 @@
 <div class="panelContainer">
-  <div class="panelList">
+  <div class="panelList {{if isShow 'right'}}">
     <div class="panelListInner">
       <header class="listHeader">
-        <h2 style="margin-top: 0; margin-bottom: 0.33em; font-size: 1.3rem;">swipe item left to “dismiss” or right to “adopt”</h2>
+        <h2 style="margin-top: 0; margin-bottom: 0.33em; font-size: 1.3rem;">Tap item to display in full, swipe left to “dismiss” or right to “adopt”</h2>
         <span style="font-size: smaller">(Not currently working in Chrome on Android)</span>
       </header>
       <div class="listContainer">
@@ -10,5 +10,5 @@
       </div>
     </div>
   </div>
-  <div class="panelDetail">{{outlet}}</div>
+  <div class="panelDetail {{if isShow 'right'}}">{{outlet}}</div>
 </div>
